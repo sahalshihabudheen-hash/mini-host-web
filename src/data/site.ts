@@ -7,6 +7,16 @@ export const APK = {
   arch: '64-bit (arm64) phones',
 }
 
+/**
+ * Set this to your Discord snowflake (the ~18-digit ID).
+ * Get it: Discord Settings → Advanced → Developer Mode on, then right-click
+ * your own profile → Copy User ID.
+ * Lanyard only answers once you have joined https://discord.gg/lanyard once.
+ */
+export const DISCORD_ID = 'REPLACE_WITH_YOUR_DISCORD_USER_ID'
+
+export const lanyardUrl = (id: string) => `https://api.lanyard.rest/v1/users/${id}`
+
 export type Feature = {
   title: string
   text: string
@@ -63,6 +73,21 @@ export type Shot = {
 }
 
 export const shots: Shot[] = [
+  {
+    src: '/images/minecart-tunnel.jpg',
+    alt: 'Two Minecraft players riding minecarts along rails through a narrow torch-lit tunnel, the leading player wearing a black outfit with a white, blue and red visor, the second raising a tool overhead as daylight shows at the far end.',
+    caption: 'Tunnel run with my brother',
+  },
+  {
+    src: '/images/petting-wolves.jpg',
+    alt: 'A Minecraft player in a long black coat with purple trim crouching down to hold the paws of a tamed wolf wearing a red collar, a second wolf lying on the grass nearby, in front of a stepped dirt hillside with a wooden door.',
+    caption: 'The boys getting some pets',
+  },
+  {
+    src: '/images/riding-the-dragon.jpg',
+    alt: 'Two Minecraft players riding on the back of a large winged ender dragon with glowing magenta eyes as it flies over a village, a river and forested hills under a bright blocky sky.',
+    caption: 'Flying home with my brother',
+  },
   {
     src: '/images/the-night.jpg',
     alt: 'A player holding a torch at night beside a chest, crafting table and furnace, with a glowing square moon and a starry sky.',
@@ -124,7 +149,7 @@ export const steps: Step[] = [
   },
 ]
 
-export type Faq = { q: string; a: string; unverified?: string }
+export type Faq = { q: string; a: string }
 
 export const faqs: Faq[] = [
   {
@@ -145,7 +170,6 @@ export const faqs: Faq[] = [
   },
   {
     q: 'How do I get help?',
-    a: 'MiniHost has a built-in contact option (under "Suggestion or bug?" in the app) that goes straight to the developer. There is no public support email or forum yet — that needs confirmation from the developer before it can be listed here.',
-    unverified: 'public support channel',
+    a: 'Two ways. Inside the app there is a "Suggestion or bug?" option that goes straight to the developer, and the About & Contact page on this site has a form that delivers your message to the same place, plus a live Discord presence card so you can see when someone is around.',
   },
 ]

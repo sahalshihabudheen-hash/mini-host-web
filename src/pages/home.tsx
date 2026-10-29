@@ -30,6 +30,12 @@ const pages = [
     href: '/faq.html',
     cta: 'Read the FAQ',
   },
+  {
+    title: 'About & Contact',
+    text: 'Who builds MiniHost, and a direct line for suggestions and bug reports.',
+    href: '/about.html',
+    cta: 'Get in touch',
+  },
 ]
 
 createRoot(document.getElementById('root')!).render(

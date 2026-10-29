@@ -15,6 +15,7 @@ export default function Footer() {
           <a href="/screenshots.html">Screenshots</a>
           <a href="/how.html">How it works</a>
           <a href="/faq.html">FAQ</a>
+          <a href="/about.html">About &amp; Contact</a>
           <a href="/download.html">Download APK</a>
           <a href={APK.url} download={APK.name}>
             APK v{APK.version}

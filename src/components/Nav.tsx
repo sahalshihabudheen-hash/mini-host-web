@@ -7,6 +7,7 @@ const links = [
   { href: '/screenshots.html', label: 'Screenshots', page: 'screenshots' },
   { href: '/how.html', label: 'How it works', page: 'how' },
   { href: '/faq.html', label: 'FAQ', page: 'faq' },
+  { href: '/about.html', label: 'About', page: 'about' },
 ]
 
 export default function Nav({ current }: { current: string }) {

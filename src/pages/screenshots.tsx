@@ -16,7 +16,7 @@ createRoot(document.getElementById('root')!).render(
       <PageHeader
         eyebrow="Gallery"
         title="Worlds worth hosting"
-        lead="Every survival world is a story waiting to happen. Tap any image to view it full size — arrow keys work too."
+        lead="The first three are me and my brothers — the rest is the kind of thing a server like this turns into. Tap any image to view it full size, arrow keys work too."
       />
       <Gallery />
     </main>

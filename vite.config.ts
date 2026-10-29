@@ -15,6 +15,7 @@ export default defineConfig({
         how: page('how.html'),
         download: page('download.html'),
         faq: page('faq.html'),
+        about: page('about.html'),
       },
     },
   },

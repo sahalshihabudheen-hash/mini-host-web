@@ -17,18 +17,22 @@ npm run preview   # serve the production build locally
 
 ```
 ├── index.html                  # Home page shell (title, meta, social tags, fonts)
-├── features.html / screenshots.html / how.html / download.html / faq.html
+├── features.html / screenshots.html / how.html / download.html / faq.html / about.html
 │                               # one shell page each — the site is multi-page
+├── api/report.js               # Vercel serverless function: forwards the contact form
+│                               # to a Discord webhook (the only server-side piece)
 ├── public/
 │   ├── MiniHost-v5.1.1.apk     # the real APK served by the download button
 │   ├── logo.png                # the app's official logo (used for branding + favicon)
-│   └── images/                 # the seven Minecraft artwork images (URL-safe names)
+│   └── images/                 # the ten Minecraft artwork images (URL-safe names)
 ├── src/
-│   ├── pages/                  # entry per page: home, features, screenshots, how, download, faq
+│   ├── pages/                  # entry per page: home, features, screenshots, how, download, faq, about
 │   ├── styles.css              # all styling (dark charcoal + Minecraft green)
-│   ├── data/site.ts            # all copy: features, gallery, steps, FAQ, APK info
-│   └── components/             # Nav, Hero, Features, Gallery, HowItWorks, Download, Faq, Footer, PageHeader
-└── vite.config.ts              # lists all six HTML pages as build inputs
+│   ├── data/site.ts            # all copy: features, gallery, steps, FAQ, APK info, DISCORD_ID
+│   └── components/             # Nav, Hero, Features, Gallery, HowItWorks, Download, Faq, Footer,
+│                               # PageHeader, DiscordCard, ReportForm
+├── vercel.json                 # build settings + APK download headers
+└── vite.config.ts              # lists all seven HTML pages as build inputs
 ```
 
 Navigation between pages uses plain `.html` links (no router), so every page works as
@@ -36,9 +40,41 @@ a standalone static file.
 
 ## Deploying
 
-`npm run build` produces a plain `dist/` folder. Upload it to any static host
-(Netlify, Vercel, GitHub Pages, Cloudflare Pages, a plain web server…). Nothing
-server-side is required. The APK and images are copied into `dist/` automatically.
+`npm run build` produces a plain `dist/` folder. The pages, APK and images are fully
+static and can go on any static host (Netlify, GitHub Pages, Cloudflare Pages…).
+
+The **one exception is the contact form** on the About page: it needs the
+`api/report.js` function, so that page only works end-to-end on Vercel (or another host
+that runs serverless functions). Everywhere else the form shows a friendly error and
+points people to the in-app option.
+
+## Setting up the About & Contact page
+
+Two values are needed before this page is live. Both are yours alone.
+
+**1. Your Discord user ID** (drives the live presence card)
+
+- Discord → Settings → Advanced → enable **Developer Mode**
+- Right-click your own profile → **Copy User ID**
+- Paste it into `DISCORD_ID` in `src/data/site.ts`
+- Join https://discord.gg/lanyard once — Lanyard only exposes presence for members of
+  that server. Until then the card shows a "not being monitored" message.
+
+**2. A Discord webhook** (where reports land)
+
+- In your Discord server: Channel → Edit → Integrations → Webhooks → **New Webhook**
+- Copy the webhook URL
+- In Vercel: your project → Settings → **Environment Variables** → add
+  `DISCORD_WEBHOOK_URL` with that URL → redeploy
+
+Never put the webhook URL in this repository or in `src/` — it is readable by anyone who
+views the site, and they could then post into your channel. It stays server-side in the
+function, which is why the form needs Vercel at all.
+
+**Note on abuse:** the form is public and has a honeypot plus length caps, but no real
+rate limit — expect occasional spam in that channel. Anyone can also submit it by hand
+with curl. If it becomes a problem, delete the webhook and recreate it, then update the
+environment variable.
 
 ## Replacing the APK (new version)
 

@@ -16,4 +16,3 @@ dist/
 # Leftovers from the retired single-page site (still in git history)
 /images/
 /download/
-vercel.json
