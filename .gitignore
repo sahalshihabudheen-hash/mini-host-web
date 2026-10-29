@@ -12,3 +12,8 @@ dist/
 /geting ready.jpg
 /novaskin-wallpaper-computer2(1).jpg
 /the night.jpg
+
+# Leftovers from the retired single-page site (still in git history)
+/images/
+/download/
+vercel.json
