@@ -43,24 +43,12 @@ const elapsed = (start?: number) => {
   return ` · ${Math.floor(mins / 60)}h ${mins % 60}m`
 }
 
-const DECOR_VERSIONS = ['2', '1']
-
-function AvatarDecoration({ asset }: { asset: string }) {
-  const [version, setVersion] = useState(0)
-  if (version >= DECOR_VERSIONS.length) return null
-  return (
-    <img
-      className="dcard__deco"
-      src={`https://cdn.discordapp.com/avatar-decoration-avatar/${DECOR_VERSIONS[version]}/${asset}.png`}
-      alt=""
-      aria-hidden="true"
-      onError={() => setVersion((v) => v + 1)}
-    />
-  )
-}
+const DECOR_URL = (asset: string) =>
+  `https://cdn.discordapp.com/avatar-decoration-presets/${asset}.png`
 
 export default function DiscordCard() {
   const [state, setState] = useState<{ kind: 'loading' } | { kind: 'ok'; data: LanyardData } | { kind: 'error'; message: string }>({ kind: 'loading' })
+  const [decoFailed, setDecoFailed] = useState(false)
 
   useEffect(() => {
     if (!/^\d{15,25}$/.test(DISCORD_ID)) {
@@ -106,13 +94,27 @@ export default function DiscordCard() {
   const { discord_user: user, discord_status: status, activities, listening_to_spotify } = state.data
   const shown = activities.filter((a) => (listening_to_spotify ? a.type !== 2 : true)).slice(0, 3)
   const name = user.global_name || user.display_name || user.username
+  const decoration = user.avatar_decoration_data?.asset
+  const showDeco = !!decoration && !decoFailed
 
   return (
     <div className="dcard">
       <div className="dcard__head">
-        <span className={`dcard__avatar dcard__avatar--${status}`}>
+        <span
+          className={`dcard__avatar dcard__avatar--${status}${
+            showDeco ? ' dcard__avatar--deco' : ''
+          }`}
+        >
           <img src={avatarUrl(user.id, user.avatar)} alt="" width={56} height={56} />
-          {user.avatar_decoration_data?.asset && <AvatarDecoration asset={user.avatar_decoration_data.asset} />}
+          {showDeco && (
+            <img
+              className="dcard__deco"
+              src={DECOR_URL(decoration)}
+              alt=""
+              aria-hidden="true"
+              onError={() => setDecoFailed(true)}
+            />
+          )}
         </span>
         <div>
           <p className="dcard__name">{name}</p>
