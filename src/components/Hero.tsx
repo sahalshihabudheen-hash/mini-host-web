@@ -21,7 +21,7 @@ export default function Hero() {
 
   return (
     <section id="home" className="hero">
-      <div className="hero__stage" onPointerEnter={() => setPaused(true)} onPointerLeave={() => setPaused(false)}>
+      <div className="hero__stage">
         {shots.map((s, i) => (
           <div
             key={s.src}
@@ -60,7 +60,11 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero__rail">
+        <div
+          className="hero__rail"
+          onPointerEnter={() => setPaused(true)}
+          onPointerLeave={() => setPaused(false)}
+        >
           <p className="hero__caption">{current.caption}</p>
           <div className="hero__thumbs" role="group" aria-label="Choose a banner image">
             {shots.map((s, i) => (

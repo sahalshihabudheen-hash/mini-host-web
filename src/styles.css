@@ -252,6 +252,7 @@ a {
   position: absolute;
   inset: 0;
   background: center 30% / cover no-repeat;
+  filter: brightness(1.16) saturate(1.06);
   opacity: 0;
   transform: scale(1.04);
   transition:
@@ -269,8 +270,8 @@ a {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(13, 16, 13, 0.92) 0%, rgba(13, 16, 13, 0.62) 45%, rgba(13, 16, 13, 0.15) 100%),
-    linear-gradient(180deg, rgba(13, 16, 13, 0.5) 0%, transparent 30%, var(--bg) 100%);
+    linear-gradient(90deg, rgba(13, 16, 13, 0.8) 0%, rgba(13, 16, 13, 0.42) 45%, rgba(13, 16, 13, 0.04) 100%),
+    linear-gradient(180deg, rgba(13, 16, 13, 0.28) 0%, transparent 45%, var(--bg) 100%);
 }
 
 .hero__inner {

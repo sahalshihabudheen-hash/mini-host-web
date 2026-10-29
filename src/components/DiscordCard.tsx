@@ -115,7 +115,7 @@ export default function DiscordCard() {
         <ul className="dcard__acts">
           {shown.map((a, i) => (
             <li key={a.id ?? `${a.name}-${i}`} className="dcard__act">
-              <span className="dcard__label">{a.name}</span>
+              <span className="dcard__label">{a.type === 4 ? 'Status' : a.name}</span>
               <span className="dcard__acttext">
                 {[a.details, a.state].filter(Boolean).join(' — ') || 'No details'}
                 {elapsed(a.timestamps?.start)}

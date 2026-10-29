@@ -1,6 +1,6 @@
 export const APK = {
-  name: 'MiniHost-v5.1.1.apk',
-  url: '/MiniHost-v5.1.1.apk',
+  name: 'MiniHost.apk',
+  url: '/MiniHost.apk',
   sizeMB: 5.4,
   version: '5.1.1',
   minAndroid: 'Android 8.0',
@@ -8,12 +8,11 @@ export const APK = {
 }
 
 /**
- * Set this to your Discord snowflake (the ~18-digit ID).
- * Get it: Discord Settings → Advanced → Developer Mode on, then right-click
- * your own profile → Copy User ID.
+ * Your Discord snowflake (Discord Settings → Advanced → Developer Mode on,
+ * then right-click your own profile → Copy User ID).
  * Lanyard only answers once you have joined https://discord.gg/lanyard once.
  */
-export const DISCORD_ID = 'REPLACE_WITH_YOUR_DISCORD_USER_ID'
+export const DISCORD_ID = '1146350719507648643'
 
 export const lanyardUrl = (id: string) => `https://api.lanyard.rest/v1/users/${id}`
 

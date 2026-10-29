@@ -22,8 +22,9 @@ npm run preview   # serve the production build locally
 ├── api/report.js               # Vercel serverless function: forwards the contact form
 │                               # to a Discord webhook (the only server-side piece)
 ├── public/
-│   ├── MiniHost-v5.1.1.apk     # the real APK served by the download button
+│   ├── MiniHost.apk            # the real APK served by the download button (stable name)
 │   ├── logo.png                # the app's official logo (used for branding + favicon)
+│   ├── og-image.png            # 1200×630 share card shown when the site is pasted into Discord
 │   └── images/                 # the ten Minecraft artwork images (URL-safe names)
 ├── src/
 │   ├── pages/                  # entry per page: home, features, screenshots, how, download, faq, about
@@ -52,7 +53,7 @@ points people to the in-app option.
 
 Two values are needed before this page is live. Both are yours alone.
 
-**1. Your Discord user ID** (drives the live presence card)
+**1. Your Discord user ID** (drives the live presence card) — already set to your ID
 
 - Discord → Settings → Advanced → enable **Developer Mode**
 - Right-click your own profile → **Copy User ID**
@@ -78,11 +79,31 @@ environment variable.
 
 ## Replacing the APK (new version)
 
-1. Drop the new APK file into `public/` (e.g. `MiniHost-v5.2.0.apk`).
-2. Update the download link in **one place**: `src/data/site.ts` — set `APK.url`,
-   `APK.name` and `APK.version`. The version and size shown on the Download buttons
-   across the page update automatically.
-3. Rebuild with `npm run build`.
+The APK is served from one stable address — `/MiniHost.apk` — so a new release never
+means editing links anywhere.
+
+1. Overwrite `public/MiniHost.apk` with the new build (keep the filename).
+2. Update the label in `src/data/site.ts`: `APK.version` and `APK.sizeMB`. The version and
+   size shown on every Download button come from there.
+3. `npm run build`, then deploy. Old links people shared keep working and always hand out
+   the newest file.
+
+If you ever want the filename itself to carry the version again, change `APK.url` and
+`APK.name` in that same file and rename the file in `public/`.
+
+## Link preview when the site is shared
+
+Each HTML shell declares Open Graph tags pointing at `public/og-image.png` (1200×630,
+logo + headline baked in) with **absolute** URLs, because Discord ignores relative
+`og:image` values and shows an embed with no picture or branding.
+
+Two things to know:
+
+- The URLs are hardcoded to `https://mini-host-web.vercel.app`. If the project is ever
+  renamed or moved to a custom domain, update `og:url`, `og:image` and `twitter:image`
+  in all seven `.html` files, or the preview image breaks.
+- Discord caches the preview of a link. After changing the tags, re-sharing may still show
+  the old card for a while.
 
 ## Replacing or adding gallery images
 
