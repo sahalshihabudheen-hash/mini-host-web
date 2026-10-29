@@ -1,0 +1,14 @@
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Original uploads — the site uses the URL-safe copies in public/
+/MiniHost-v5.1.1.apk
+/MiniHostApp (2).zip
+/ambush.jpg
+/fight.jpg
+/freind with cow.jpg
+/freinds night.jpg
+/geting ready.jpg
+/novaskin-wallpaper-computer2(1).jpg
+/the night.jpg
