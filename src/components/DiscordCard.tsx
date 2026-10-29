@@ -17,6 +17,7 @@ type LanyardData = {
     global_name?: string | null
     display_name?: string | null
     avatar?: string | null
+    avatar_decoration_data?: { asset?: string | null } | null
   }
   discord_status: 'online' | 'idle' | 'dnd' | 'offline'
   activities: Activity[]
@@ -40,6 +41,22 @@ const elapsed = (start?: number) => {
   const mins = Math.max(0, Math.round((Date.now() - start) / 60000))
   if (mins < 60) return ` · ${mins} min`
   return ` · ${Math.floor(mins / 60)}h ${mins % 60}m`
+}
+
+const DECOR_VERSIONS = ['2', '1']
+
+function AvatarDecoration({ asset }: { asset: string }) {
+  const [version, setVersion] = useState(0)
+  if (version >= DECOR_VERSIONS.length) return null
+  return (
+    <img
+      className="dcard__deco"
+      src={`https://cdn.discordapp.com/avatar-decoration-avatar/${DECOR_VERSIONS[version]}/${asset}.png`}
+      alt=""
+      aria-hidden="true"
+      onError={() => setVersion((v) => v + 1)}
+    />
+  )
 }
 
 export default function DiscordCard() {
@@ -95,6 +112,7 @@ export default function DiscordCard() {
       <div className="dcard__head">
         <span className={`dcard__avatar dcard__avatar--${status}`}>
           <img src={avatarUrl(user.id, user.avatar)} alt="" width={56} height={56} />
+          {user.avatar_decoration_data?.asset && <AvatarDecoration asset={user.avatar_decoration_data.asset} />}
         </span>
         <div>
           <p className="dcard__name">{name}</p>

@@ -50,9 +50,6 @@ createRoot(document.getElementById('root')!).render(
           <aside className="about__side">
             <h2 className="about__side-title">Live now</h2>
             <DiscordCard />
-            <p className="about__side-cap">
-              Presence is read live from Discord through the public Lanyard API.
-            </p>
           </aside>
         </div>
       </section>
