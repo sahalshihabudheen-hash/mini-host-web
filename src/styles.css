@@ -1115,18 +1115,6 @@ a {
   display: block;
 }
 
-.dcard__avatar--deco {
-  display: grid;
-  place-items: center;
-  padding: 0;
-  background: none;
-}
-
-.dcard__avatar--deco > img:first-child {
-  width: 58%;
-  height: 58%;
-}
-
 .dcard__avatar .dcard__deco {
   position: absolute;
   inset: 0;
@@ -1148,6 +1136,19 @@ a {
 }
 .dcard__avatar--offline {
   background: #6b6f76;
+}
+
+/* after the status colours on purpose: a decoration replaces the ring */
+.dcard__avatar--deco {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  background: none;
+}
+
+.dcard__avatar--deco > img:first-child {
+  width: 58%;
+  height: 58%;
 }
 
 .dcard__name {
