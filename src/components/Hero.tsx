@@ -1,7 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import { APK, shots } from '../data/site'
 
 const ROTATE_MS = 7000
+
+/**
+ * Both banner crops are handed to CSS as custom properties and the stylesheet picks one
+ * at the 720px breakpoint. Choosing in JavaScript instead made a phone fetch the desktop
+ * banner on first paint and the phone banner a moment later.
+ */
+const slideVars = (s: (typeof shots)[number]) =>
+  ({
+    '--hero-desktop': `url(${s.hero})`,
+    '--hero-phone': `url(${s.heroMobile})`,
+  }) as CSSProperties
 
 export default function Hero() {
   const [active, setActive] = useState(0)
@@ -26,7 +37,7 @@ export default function Hero() {
           <div
             key={s.src}
             className={`hero__slide ${i === active ? 'hero__slide--active' : ''}`}
-            style={{ backgroundImage: `url(${s.src})` }}
+            style={slideVars(s)}
             aria-hidden={i === active ? undefined : 'true'}
           />
         ))}
@@ -72,7 +83,7 @@ export default function Hero() {
                 key={s.src}
                 type="button"
                 className={`hero__thumb ${i === active ? 'hero__thumb--active' : ''}`}
-                style={{ backgroundImage: `url(${s.src})` }}
+                style={{ backgroundImage: `url(${s.thumb})` }}
                 aria-label={s.caption}
                 aria-current={i === active ? 'true' : undefined}
                 onClick={() => setActive(i)}

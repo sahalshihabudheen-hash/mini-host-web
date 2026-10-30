@@ -25,11 +25,12 @@ export default function Faq() {
                     </span>
                   </button>
                 </h3>
-                {isOpen && (
-                  <p id={`faq-a-${i}`} className="faq__a">
-                    {f.a}
-                  </p>
-                )}
+                {/* The answer stays in the markup and is hidden by the browser's
+                    [hidden] rule: collapsed-by-default accordions otherwise leave
+                    search engines with only the first answer to read. */}
+                <p id={`faq-a-${i}`} className="faq__a" hidden={!isOpen}>
+                  {f.a}
+                </p>
               </div>
             )
           })}

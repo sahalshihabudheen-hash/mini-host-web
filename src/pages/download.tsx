@@ -5,15 +5,25 @@ import Nav from '../components/Nav'
 import Download from '../components/Download'
 import Footer from '../components/Footer'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <a className="skip-link" href="#main">
-      Skip to content
-    </a>
-    <Nav current="download" />
-    <main id="main">
-      <Download />
-    </main>
-    <Footer />
-  </StrictMode>,
-)
+export function App() {
+  return (
+    <>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <Nav current="download" />
+      <main id="main">
+        <Download />
+      </main>
+      <Footer />
+    </>
+  )
+}
+
+if (typeof document !== 'undefined') {
+  createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+      <App />
+    </StrictMode>,
+  )
+}

@@ -252,6 +252,7 @@ a {
   position: absolute;
   inset: 0;
   background: center 30% / cover no-repeat;
+  background-image: var(--hero-desktop);
   filter: brightness(1.16) saturate(1.06);
   opacity: 0;
   transform: scale(1.04);
@@ -669,7 +670,7 @@ a {
   inset: 0;
   background:
     linear-gradient(180deg, var(--bg) 0%, rgba(13, 16, 13, 0.78) 40%, rgba(13, 16, 13, 0.9) 100%),
-    url('/images/fight.jpg') center 25% / cover no-repeat;
+    url('/images/hero/fight.jpg') center 25% / cover no-repeat;
 }
 
 .download__inner {
@@ -814,6 +815,10 @@ a {
   color: var(--ink-muted);
 }
 
+.faq__a[hidden] {
+  display: none;
+}
+
 /* ---------- footer ---------- */
 
 .footer {
@@ -925,7 +930,32 @@ a {
 
   .hero__stage {
     min-height: auto;
-    padding: 110px 0 130px;
+    padding: calc(72vw + 24px) 0 96px;
+  }
+
+  /* Under `cover` the visible slice of the source is fixed by the box aspect alone:
+     a full-height 344x866 box shows 429 of 1920 source pixels (22%) whatever file is
+     served, blown up ~2x. Matching the box to the phone crop's aspect ratio makes
+     `cover` a no-op, so the whole 920x1080 region shows at ~1:1 device pixels.
+     The mask fades the band into the page background instead of ending on a hard edge. */
+  .hero__slide {
+    inset: 0 0 auto 0;
+    height: auto;
+    aspect-ratio: 92 / 108;
+    background-image: var(--hero-phone);
+    background-size: cover;
+    background-position: center 30%;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 52%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 52%, transparent 100%);
+  }
+
+  .hero__scrim {
+    background: linear-gradient(
+      90deg,
+      rgba(13, 16, 13, 0.74) 0%,
+      rgba(13, 16, 13, 0.36) 55%,
+      rgba(13, 16, 13, 0.06) 100%
+    );
   }
 
   .hero__rail {

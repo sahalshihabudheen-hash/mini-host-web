@@ -6,20 +6,30 @@ import PageHeader from '../components/PageHeader'
 import Faq from '../components/Faq'
 import Footer from '../components/Footer'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <a className="skip-link" href="#main">
-      Skip to content
-    </a>
-    <Nav current="faq" />
-    <main id="main">
-      <PageHeader
-        eyebrow="FAQ"
-        title="Questions, answered"
-        lead="The honest version — if something isn’t confirmed, it says so."
-      />
-      <Faq />
-    </main>
-    <Footer />
-  </StrictMode>,
-)
+export function App() {
+  return (
+    <>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <Nav current="faq" />
+      <main id="main">
+        <PageHeader
+          eyebrow="FAQ"
+          title="Questions, answered"
+          lead="The honest version — if something isn’t confirmed, it says so."
+        />
+        <Faq />
+      </main>
+      <Footer />
+    </>
+  )
+}
+
+if (typeof document !== 'undefined') {
+  createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+      <App />
+    </StrictMode>,
+  )
+}

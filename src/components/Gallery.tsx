@@ -15,7 +15,7 @@ function GalleryImage({ shot, onOpen }: { shot: Shot; onOpen: () => void }) {
           onClick={onOpen}
           aria-label={`Open image: ${shot.caption}. ${shot.alt}`}
         >
-          <img src={shot.src} alt={shot.alt} loading="lazy" onError={() => setFailed(true)} />
+          <img src={shot.card} alt={shot.alt} loading="lazy" onError={() => setFailed(true)} />
           <figcaption className="shot__caption">{shot.caption}</figcaption>
         </button>
       )}

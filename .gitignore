@@ -2,6 +2,10 @@ node_modules/
 dist/
 *.tsbuildinfo
 
+# Local working files, too large for the repo
+/_scratch/
+/videos/
+
 # Original uploads — the site uses the URL-safe copies in public/
 /MiniHost-v5.1.1.apk
 /MiniHost.apk

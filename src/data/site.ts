@@ -66,59 +66,80 @@ export const features: Feature[] = [
 ]
 
 export type Shot = {
+  /** Full original — only the lightbox asks for this. */
   src: string
+  /** Desktop banner. */
+  hero: string
+  /** Phone banner: a deliberate portrait crop, not a slice of the desktop frame. */
+  heroMobile: string
+  /** Gallery tile. */
+  card: string
+  /** Carousel thumbnail. */
+  thumb: string
   alt: string
   caption: string
 }
 
+/**
+ * The variants for one moment, cut by tools/make-images.py. Every page used to load the
+ * 1920x1080 original for the hero, the gallery and even the 74px thumbnails.
+ */
+const sizes = (name: string) => ({
+  src: `/images/${name}.jpg`,
+  hero: `/images/hero/${name}.jpg`,
+  heroMobile: `/images/hero-m/${name}.jpg`,
+  card: `/images/card/${name}.jpg`,
+  thumb: `/images/thumb/${name}.jpg`,
+})
+
 export const shots: Shot[] = [
   {
-    src: '/images/minecart-tunnel.jpg',
+    ...sizes('minecart-tunnel'),
     alt: 'Two Minecraft players riding minecarts along rails through a narrow torch-lit tunnel, the leading player wearing a black outfit with a white, blue and red visor, the second raising a tool overhead as daylight shows at the far end.',
     caption: 'Tunnel run with my brother',
   },
   {
-    src: '/images/petting-wolves.jpg',
+    ...sizes('petting-wolves'),
     alt: 'A Minecraft player in a long black coat with purple trim crouching down to hold the paws of a tamed wolf wearing a red collar, a second wolf lying on the grass nearby, in front of a stepped dirt hillside with a wooden door.',
     caption: 'The boys getting some pets',
   },
   {
-    src: '/images/riding-the-dragon.jpg',
+    ...sizes('riding-the-dragon'),
     alt: 'Two Minecraft players riding on the back of a large winged ender dragon with glowing magenta eyes as it flies over a village, a river and forested hills under a bright blocky sky.',
     caption: 'Flying home with my brother',
   },
   {
-    src: '/images/the-night.jpg',
+    ...sizes('the-night'),
     alt: 'A player holding a torch at night beside a chest, crafting table and furnace, with a glowing square moon and a starry sky.',
     caption: 'Home base under the stars',
   },
   {
-    src: '/images/friends-night.jpg',
+    ...sizes('friends-night'),
     alt: 'Two players standing back-to-back with a diamond sword, surrounded by zombies, creepers, skeletons and spiders at night.',
     caption: 'When night falls, stick together',
   },
   {
-    src: '/images/fight.jpg',
+    ...sizes('fight'),
     alt: 'An Enderman unleashing a shockwave that sends several players and blocks of dirt flying across a grassy field.',
     caption: 'Every world has its surprises',
   },
   {
-    src: '/images/getting-ready.jpg',
+    ...sizes('getting-ready'),
     alt: 'An archer and a TV-headed robot facing off across a crafting table with a diamond sword leaning against it.',
     caption: 'Getting ready for the duel',
   },
   {
-    src: '/images/friend-with-cow.jpg',
+    ...sizes('friend-with-cow'),
     alt: 'A player waving beside a cow in front of a wooden house, with a bright sun flare and blurred green trees behind.',
     caption: 'Making friends along the way',
   },
   {
-    src: '/images/ambush.jpg',
+    ...sizes('ambush'),
     alt: 'A villager with a bomb for a head floating in a boat on dark water, facing an Enderman holding a golden sword, with fire glowing on nether-brick structures behind.',
     caption: 'Expect the unexpected',
   },
   {
-    src: '/images/night-desk.jpg',
+    ...sizes('night-desk'),
     alt: 'A player enjoying a mug by a desk with a monitor and cookies while another player stands behind, in a cozy plank-walled room at night.',
     caption: 'After a long day in the world',
   },
