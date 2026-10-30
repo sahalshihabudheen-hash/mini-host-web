@@ -95,10 +95,11 @@ for (const page of PAGES) {
   if (html === before) throw new Error(`${page.file}: no empty #root to fill — did the build change?`)
 
   const canonical = `<link rel="canonical" href="${publicUrl(page.file)}" />`
+  const author = `<meta name="author" content="${seo.AUTHOR.name}" />`
   const blocks = seo.ldFor(page.file, await lastmodFor(page))
   const structured = blocks.map((b) => `<script type="application/ld+json">${jsonLd(b)}</script>`).join('\n    ')
 
-  html = html.replace('</head>', `  ${canonical}\n    ${structured}\n  </head>`)
+  html = html.replace('</head>', `  ${author}\n  ${canonical}\n    ${structured}\n  </head>`)
 
   const words = html
     .replace(/<script[\s\S]*?<\/script>/g, ' ')

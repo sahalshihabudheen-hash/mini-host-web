@@ -6,6 +6,7 @@ import PageHeader from '../components/PageHeader'
 import DiscordCard from '../components/DiscordCard'
 import ReportForm from '../components/ReportForm'
 import Footer from '../components/Footer'
+import { AUTHOR } from '../data/seo'
 
 export function App() {
   return (
@@ -18,12 +19,20 @@ export function App() {
         <PageHeader
           eyebrow="About & Contact"
           title="One developer, one server in your pocket"
-          lead="MiniHost is built and maintained solo — the same person who answers when you report a bug."
+          lead={`MiniHost is built and maintained solo by ${AUTHOR.name} — the same person who answers when you report a bug.`}
         />
 
         <section className="section">
           <div className="section__inner about">
             <div className="about__prose">
+              <h2>Who is behind MiniHost</h2>
+              <p>
+                MiniHost is built by <strong>{AUTHOR.name}</strong>, who goes by{' '}
+                <strong>{AUTHOR.handle}</strong> — the same name you will see on the GitHub
+                repositories, the APK releases and the Discord replies. It is a one-person project:
+                the app, this website and the support inbox are all written and maintained by the
+                same developer, so there is no team to be passed around when something breaks.
+              </p>
               <h2>Why it exists</h2>
               <p>
                 Hosting a Minecraft server normally means leaving a PC running, or pasting shell

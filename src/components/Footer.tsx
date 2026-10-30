@@ -1,4 +1,5 @@
 import { APK } from '../data/site'
+import { AUTHOR } from '../data/seo'
 
 export default function Footer() {
   return (
@@ -22,8 +23,9 @@ export default function Footer() {
           </a>
         </nav>
         <p className="footer__legal">
-          © {new Date().getFullYear()} MiniHost. Not affiliated with, endorsed by, or associated
-          with Mojang or Microsoft.
+          © {new Date().getFullYear()} MiniHost — built by{' '}
+          <a href="/about.html">{AUTHOR.name}</a>, who goes by {AUTHOR.handle}. Not affiliated with,
+          endorsed by, or associated with Mojang or Microsoft.
         </p>
       </div>
     </footer>
