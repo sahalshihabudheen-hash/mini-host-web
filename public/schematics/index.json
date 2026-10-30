@@ -1,0 +1,204 @@
+{
+ "updated": "2026-10-30T05:35:00.283Z",
+ "note": "All builds are original Mini Host content.",
+ "library": [
+  {
+   "id": "tavern",
+   "file": "tavern.schem",
+   "title": "The Crossed Lantern Tavern",
+   "desc": "Two floors: taproom below, guest loft above, chimney smoking.",
+   "tags": [
+    "building",
+    "interior",
+    "survival"
+   ],
+   "size": "15x12x13",
+   "blocks": 867,
+   "palette": 23,
+   "bytes": 825,
+   "mc": "1.20+",
+   "author": "Mini Host",
+   "license": "Made for Mini Host - free to use in your worlds"
+  },
+  {
+   "id": "watchtower",
+   "file": "watchtower.schem",
+   "title": "Ruin Watchtower",
+   "desc": "Mossy stone shaft with a timber hoarding and a lit beacon room.",
+   "tags": [
+    "building",
+    "defense",
+    "pvp"
+   ],
+   "size": "11x20x11",
+   "blocks": 533,
+   "palette": 15,
+   "bytes": 644,
+   "mc": "1.20+",
+   "author": "Mini Host",
+   "license": "Made for Mini Host - free to use in your worlds"
+  },
+  {
+   "id": "cropfield",
+   "file": "cropfield.schem",
+   "title": "Irrigated Crop Field",
+   "desc": "Water down the middle, three crops, tool shed and hay store.",
+   "tags": [
+    "farm",
+    "functional",
+    "survival"
+   ],
+   "size": "19x7x19",
+   "blocks": 653,
+   "palette": 15,
+   "bytes": 636,
+   "mc": "1.20+",
+   "author": "Mini Host",
+   "license": "Made for Mini Host - free to use in your worlds"
+  },
+  {
+   "id": "nethergate",
+   "file": "nethergate.schem",
+   "title": "Nether Gate Hub",
+   "desc": "Obsidian arch, magma walkway, soul-lit basalt pillars.",
+   "tags": [
+    "nether",
+    "travel",
+    "hub"
+   ],
+   "size": "17x12x9",
+   "blocks": 403,
+   "palette": 8,
+   "bytes": 451,
+   "mc": "1.20+",
+   "author": "Mini Host",
+   "license": "Made for Mini Host - free to use in your worlds"
+  },
+  {
+   "id": "spawnisland",
+   "file": "spawnisland.schem",
+   "title": "Floating Spawn Island",
+   "desc": "Grass platform with paths, benches, a tree and four lamp posts.",
+   "tags": [
+    "spawn",
+    "lobby",
+    "float"
+   ],
+   "size": "21x10x21",
+   "blocks": 882,
+   "palette": 17,
+   "bytes": 676,
+   "mc": "1.20+",
+   "author": "Mini Host",
+   "license": "Made for Mini Host - free to use in your worlds"
+  },
+  {
+   "id": "harbourdock",
+   "file": "harbourdock.schem",
+   "title": "Fisherman's Dock",
+   "desc": "Spruce pier, lamp posts, a tackle shack and crate storage.",
+   "tags": [
+    "decor",
+    "village",
+    "water"
+   ],
+   "size": "27x9x11",
+   "blocks": 506,
+   "palette": 12,
+   "bytes": 560,
+   "mc": "1.20+",
+   "author": "Mini Host",
+   "license": "Made for Mini Host - free to use in your worlds"
+  },
+  {
+   "id": "lighthouse",
+   "file": "lighthouse.schem",
+   "title": "Cape Lighthouse",
+   "desc": "Banded wool tower with a glass lamp room and inside steps.",
+   "tags": [
+    "build",
+    "tower",
+    "coast"
+   ],
+   "size": "11x26x11",
+   "blocks": 521,
+   "palette": 12,
+   "bytes": 635,
+   "mc": "1.20+",
+   "author": "Mini Host",
+   "license": "Made for Mini Host - free to use in your worlds"
+  },
+  {
+   "id": "cottage",
+   "file": "cottage.schem",
+   "title": "Cobblestone Cottage",
+   "desc": "One-room starter home with a wheat strip and a fenced lane.",
+   "tags": [
+    "house",
+    "starter",
+    "survival"
+   ],
+   "size": "13x10x11",
+   "blocks": 399,
+   "palette": 22,
+   "bytes": 739,
+   "mc": "1.20+",
+   "author": "Mini Host",
+   "license": "Made for Mini Host - free to use in your worlds"
+  },
+  {
+   "id": "stonebridge",
+   "file": "stonebridge.schem",
+   "title": "Arched Stone Bridge",
+   "desc": "Decked arch with lamp standards over a nine-wide channel.",
+   "tags": [
+    "decor",
+    "path",
+    "water"
+   ],
+   "size": "27x11x9",
+   "blocks": 240,
+   "palette": 6,
+   "bytes": 470,
+   "mc": "1.20+",
+   "author": "Mini Host",
+   "license": "Made for Mini Host - free to use in your worlds"
+  },
+  {
+   "id": "gazebo",
+   "file": "gazebo.schem",
+   "title": "Garden Gazebo",
+   "desc": "Shaded pavilion with benches, hanging lamps and potted blooms.",
+   "tags": [
+    "decor",
+    "garden",
+    "small"
+   ],
+   "size": "11x9x11",
+   "blocks": 247,
+   "palette": 16,
+   "bytes": 592,
+   "mc": "1.20+",
+   "author": "Mini Host",
+   "license": "Made for Mini Host - free to use in your worlds"
+  },
+  {
+   "id": "minemouth",
+   "file": "minemouth.schem",
+   "title": "Old Mine Entrance",
+   "desc": "Timbered portal with rails, torches and tool lockers.",
+   "tags": [
+    "decor",
+    "adventure",
+    "ruins"
+   ],
+   "size": "15x11x13",
+   "blocks": 623,
+   "palette": 19,
+   "bytes": 629,
+   "mc": "1.20+",
+   "author": "Mini Host",
+   "license": "Made for Mini Host - free to use in your worlds"
+  }
+ ]
+}
