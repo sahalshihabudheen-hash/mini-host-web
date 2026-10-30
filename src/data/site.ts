@@ -2,7 +2,7 @@ export const APK = {
   name: 'MiniHost.apk',
   url: '/MiniHost.apk',
   sizeMB: 5.4,
-  version: '5.1.1',
+  version: '5.2.1',
   minAndroid: 'Android 8.0',
   arch: '64-bit (arm64) phones',
 }
